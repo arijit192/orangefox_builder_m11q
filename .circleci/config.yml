@@ -5,7 +5,7 @@ jobs:
       image: ubuntu-2004:202010-01
     steps:
       - checkout
-      - run: curl -O https://gitlab.com/OrangeFox/misc/scripts/-/raw/master/setup/android_build_env.sh && sudo ./android_build_env.sh
+      - run: curl -O https://gitlab.com/OrangeFox/misc/scripts/-/raw/master/setup/android_build_env.sh && chmod +x android_build_env.sh && sudo ./android_build_env.sh
       - run: mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
       - run: cd ~/OrangeFox_10/sync && ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
       - run: sudo apt install curl
