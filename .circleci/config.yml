@@ -12,4 +12,4 @@ jobs:
       - run: git config --global user.email "tukaiari@gmail.com"
       - run: git config --global user.name "Arijit Roy"
       - run: cd ~/OrangeFox_10/fox_10.0 && git clone https://gitlab.com/arijit192/android_device_samsung_m11q.git device/samsung/m11q
-      - run: cd ~/OrangeFox_10/sync && ./build_fox.sh m11q -c
+      - run: cd ~/OrangeFox_10 && ./sync/build_fox.sh m11q -c
