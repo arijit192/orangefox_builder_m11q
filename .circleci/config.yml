@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout
+      - run: mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git && cd ~/OrangeFox_10/sync
+      - run: ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
+      - run: sudo apt install curl
+      - run: PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
+      - run: git config --global user.email "tukaiari@gmail.com"
+      - run: git config --global user.name "Arijit Roy"
+      - run: cd ~/OrangeFox_10/fox_10.0 && git clone https://gitlab.com/arijit192/android_device_samsung_m11q.git device/samsung/m11q
+      - run: cd ~/OrangeFox_10/sync && ./build_fox.sh m11q -c
