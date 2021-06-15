@@ -23,5 +23,5 @@ jobs:
           name: "Push to GitHub Release"
           command: |
             go get github.com/tcnksm/ghr
-            VERSION=$(my-binary --version)
+            VERSION=$(0.1.0)
             ghr -t ${GITHUB_TOKEN} -u ${arijit192} -r ${orangefox_builder_m11q} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
