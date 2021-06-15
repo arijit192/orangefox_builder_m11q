@@ -9,7 +9,7 @@ jobs:
       - run: git config --global user.name "Arijit Roy"
       - run: sudo apt install bzip2
       - run: curl -O https://raw.githubusercontent.com/arijit192/ab/main/su.sh && chmod +x su.sh && sudo ./su.sh
-      - run: curl -O https://github.com/arijit192/ab/blob/main/linux-amd64-github-release?raw=true && mv linux-amd64-github-release github-release && chmod +x github-release
+      - run: curl -O https://github.com/arijit192/ab/blob/main/linux-amd64-github-release?raw=true && mv ~/linux-amd64-github-release ~/github-release && chmod +x ~/github-release
       - run: mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
       - run: cd ~/OrangeFox_10/sync && ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
       - run: cd ~/OrangeFox_10/fox_10.0 && git clone https://gitlab.com/arijit192/android_device_samsung_m11q.git device/samsung/m11q
