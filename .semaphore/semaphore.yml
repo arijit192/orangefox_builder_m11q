@@ -2,12 +2,21 @@ version: v1.0
 name: Initial Pipeline
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
+    type: e1-standard-4
+    os_image: ubuntu2004
 blocks:
   - name: 'Block #1'
     task:
       jobs:
         - name: 'Job #1'
           commands:
-            - echo "Hello"
+            - sudo apt update
+            - sudo apt install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+            - git config --global user.email "tukaiari@gmail.com"
+            - git config --global user.name "Arijit Roy"
+            - curl -O https://raw.githubusercontent.com/arijit192/ab/main/su.sh && chmod +x su.sh && sudo ./su.sh
+            - mkdir ~/artifacts
+            - mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
+            - cd ~/OrangeFox_10/sync && ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
+            - cd ~/OrangeFox_10/fox_10.0 && git clone https://gitlab.com/arijit192/android_device_samsung_m11q.git device/samsung/m11q
+            - cd ~/OrangeFox_10 && ./sync/build_fox.sh m11q -c
