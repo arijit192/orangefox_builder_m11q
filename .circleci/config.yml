@@ -7,7 +7,9 @@ jobs:
       - checkout
       - run: git config --global user.email "tukaiari@gmail.com"
       - run: git config --global user.name "Arijit Roy"
-      - run: curl -O https://raw.githubusercontent.com/arijit192/ab/main/su.sh && chmod +x su.sh && sudo ./su.sh
+      - run: sudo apt update && sudo apt upgrade
+      - run: sudo apt install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+      - run: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
       - run: mkdir ~/artifacts
       - run: mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
       - run: cd ~/OrangeFox_10/sync && ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
@@ -19,9 +21,3 @@ jobs:
           path: /home/circleci/OrangeFox_10/BUILDS/m11q/target/product/m11q/OrangeFox-Unofficial-m11q.img
       - store_artifacts:
           path: /home/circleci/OrangeFox_10/BUILDS/m11q/target/product/m11q/OrangeFox-Unofficial-m11q.zip
-      - run:
-          name: "Push to GitHub Release"
-          command: |
-            go get github.com/tcnksm/ghr
-            VERSION=0.1.0
-            ghr -t ${GITHUB_TOKEN} -u ${arijit192} -r ${orangefox_builder_m11q} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
