@@ -6,7 +6,9 @@ container:
 task:
   script: |
     apt update && apt install -y git-core gnupg make curl flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
-    mkdir ~/bin && PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
-    mkdir ~/an && cd ~/an && repo init --depth=1 -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.9.6.2.r1-04800-89xx.0.xml
+    mkdir ~/bin
+    PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
+    mkdir ~/an
+    cd ~/an && repo init --depth=1 -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.9.6.2.r1-04800-89xx.0.xml
     cd ~/an && repo sync
     cd ~/an && source build/envsetup.sh && lunch
