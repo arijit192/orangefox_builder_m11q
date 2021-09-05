@@ -1,11 +1,7 @@
-gce_instance:
-  image_project: ubuntu-os-cloud
-  image_name: ubuntu-1904-disco-v20190417
-  zone: us-central1-a
-  cpu: 8
-  memory: 40GB
-  disk: 60
-  use_ssd: true # default to false
+container:
+  image: openjdk:latest
+  cpu: 4
+  memory: 12G
 
 task:
-  script: free -h && cpuinfo && lsblk
+  script: free -h && lsblk && cpuinfo
