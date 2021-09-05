@@ -4,4 +4,4 @@ container:
   memory: 12G
 
 task:
-  script: free -h && lsblk && cpuinfo
+  script: pwd
