@@ -5,7 +5,7 @@ container:
 
 task:
   script: |
-    mkdir -p ~/bin/repo
+    mkdir ~/bin
     curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
-    apt update && install git-core
+    apt update && apt install git-core
     mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
