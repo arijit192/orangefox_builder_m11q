@@ -5,9 +5,8 @@ container:
 
 task:
   script: |
-    mkdir ~/bin
-    PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod 755 ~/bin/repo
-    apt update && apt install -y git-core gnupg make flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+    apt update && apt install -y git-core gnupg make curl flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+    mkdir ~/bin && PATH=~/bin:$PATH && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && chmod a+x ~/bin/repo
     mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
     cd ~/OrangeFox_10/sync && ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
     cd ~/OrangeFox_10/fox_10.0 && git clone https://gitlab.com/arijit192/android_device_samsung_m11q.git device/samsung/m11q
