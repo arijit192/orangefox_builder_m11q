@@ -1,5 +1,5 @@
 container:
-  image: debian:latest
+  image: ubuntu:18.04
   cpu: 8
   memory: 32G
 
