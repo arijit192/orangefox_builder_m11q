@@ -12,6 +12,4 @@ task:
     chmod a+x ~/bin/repo
     mkdir ~/an
     cd ~/an
-    repo init --depth=1 -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.9.6.2.r1-04800-89xx.0.xml
-    repo sync
-    cd ~/an && source build/envsetup.sh && lunch
+    repo init -u https://github.com/ArrowOS/android_manifest.git -b arrow-11.0 && repo sync
