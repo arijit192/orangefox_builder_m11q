@@ -11,5 +11,5 @@ task:
     mkdir ~/OrangeFox_10 && cd ~/OrangeFox_10 && git clone https://gitlab.com/OrangeFox/sync.git
     cd ~/OrangeFox_10/sync && ./get_fox_10.sh ~/OrangeFox_10/fox_10.0
     cd ~/OrangeFox_10/fox_10.0 && git clone https://gitlab.com/arijit192/android_device_samsung_m11q.git device/samsung/m11q
-  script: |
+  script2: |
     cd ~/OrangeFox_10 && ./sync/build_fox.sh m11q -c
