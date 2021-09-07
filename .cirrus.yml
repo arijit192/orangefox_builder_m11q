@@ -10,3 +10,4 @@ task:
     curl https://raw.githubusercontent.com/arijit192/arrowos-script/main/script.sh > ~/script.sh
     chmod +x ~/script.sh
     bash ~/script.sh
+    
