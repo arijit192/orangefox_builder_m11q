@@ -5,8 +5,6 @@ container:
 
 task:
   timeout_in: 120m
-  ccache_cache:
-    folder: ~/ccache
   script: |
     apt update && apt install -y git-core ccache iputils-ping tmate python3 python jq gnupg make curl flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
     curl https://raw.githubusercontent.com/arijit192/arrowos-script/main/script.sh > ~/script.sh
