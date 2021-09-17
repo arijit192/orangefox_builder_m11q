@@ -5,7 +5,7 @@ container:
 
 ccache_cache:
     folder: ccache
-  upload_caches:
+upload_caches:
     - ccache
 
 task:
