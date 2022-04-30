@@ -15,6 +15,7 @@ task:
     mkdir -p ~/.bin && PATH="${HOME}/.bin:${PATH}" && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo && chmod a+rx ~/.bin/repo
     mkdir twrp && cd twrp && repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
     repo sync
+    mkdir -p .repo/local_manifests
     curl https://raw.githubusercontent.com/arijit192/orangefox_device_samsung_m11q/twrp/roomservice.xml > .repo/local_manifests/roomservice.xml
     repo sync
     export ALLOW_MISSING_DEPENDENCIES=true
