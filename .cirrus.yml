@@ -15,7 +15,8 @@ task:
     mkdir -p ~/.bin && PATH="${HOME}/.bin:${PATH}" && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo && chmod a+rx ~/.bin/repo
     mkdir twrp && cd twrp && repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
     repo sync
-    git clone https://github.com/arijit192/orangefox_device_samsung_m11q device/samsung/m11q
+    curl https://raw.githubusercontent.com/arijit192/orangefox_device_samsung_m11q/twrp/roomservice.xml > .repo/local_manifests/roomservice.xml
+    repo sync
     . build/envsetup.sh
     lunch twrp_m11q-eng
     mka recoveryimage
