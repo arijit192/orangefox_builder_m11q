@@ -12,7 +12,10 @@ task:
   timeout_in: 120m
   script: |
     apt update && apt install -y git-core ccache iputils-ping python3 python jq gnupg make curl flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5-dev lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
-    curl https://raw.githubusercontent.com/arijit192/arrowos-script/main/script.sh > ~/script.sh
-    chmod +x ~/script.sh
-    bash ~/script.sh
+    mkdir -p ~/.bin && PATH="${HOME}/.bin:${PATH}" && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo && chmod a+rx ~/.bin/repo
+    mkdir twrp && cd twrp && repo init --depth=1 -u git@github.com:minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+    repo sync
+    git clone https://github.com/arijit192/orangefox_device_samsung_m11q device/samsung/m11q
+    lunch twrp_m11q-eng
+    mka recoveryimage
     
