@@ -17,6 +17,7 @@ task:
     repo sync
     curl https://raw.githubusercontent.com/arijit192/orangefox_device_samsung_m11q/twrp/roomservice.xml > .repo/local_manifests/roomservice.xml
     repo sync
+    export ALLOW_MISSING_DEPENDENCIES=true
     . build/envsetup.sh
     lunch twrp_m11q-eng
     mka recoveryimage
